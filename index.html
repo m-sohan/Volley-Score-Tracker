@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volleyball Score Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="team-form">
+        <h1>Enter Team Details</h1>
+        <form id="detailsForm">
+            <div>
+                <label for="teamA">Team A Name:</label>
+                <input type="text" id="teamA" required>
+            </div>
+            <div>
+                <label for="teamB">Team B Name:</label>
+                <input type="text" id="teamB" required>
+            </div>
+            <div class="team-players">
+                <h2>Team A Players</h2>
+                <div id="playersA">
+                    <input type="text" placeholder="Player 1" required>
+                    <input type="text" placeholder="Player 2" required>
+                    <input type="text" placeholder="Player 3" required>
+                    <input type="text" placeholder="Player 4" required>
+                    <input type="text" placeholder="Player 5" required>
+                    <input type="text" placeholder="Player 6" required>
+                    <input type="text" placeholder="Extra Player 1">
+                    <input type="text" placeholder="Extra Player 2">
+                    <input type="text" placeholder="Extra Player 3">
+                    <input type="text" placeholder="Extra Player 4">
+                </div>
+            </div>
+            <div class="team-players">
+                <h2>Team B Players</h2>
+                <div id="playersB">
+                    <input type="text" placeholder="Player 1" required>
+                    <input type="text" placeholder="Player 2" required>
+                    <input type="text" placeholder="Player 3" required>
+                    <input type="text" placeholder="Player 4" required>
+                    <input type="text" placeholder="Player 5" required>
+                    <input type="text" placeholder="Player 6" required>
+                    <input type="text" placeholder="Extra Player 1">
+                    <input type="text" placeholder="Extra Player 2">
+                    <input type="text" placeholder="Extra Player 3">
+                    <input type="text" placeholder="Extra Player 4">
+                </div>
+            </div>
+            <button type="submit">Start Game</button>
+        </form>
+    </div>
+    <div id="score-tracker" style="display: none;">
+        <h1>Score Tracker</h1>
+        <div id="teams">
+            <div id="teamA-info">
+                <h2 id="teamA-name"></h2>
+                <img src="https://marketplace.canva.com/EAFIjG0Ud30/1/0/1600w/canva-volleyball-club-sport-logo-rKJhM20HlCI.jpg" alt="Team A Logo">
+                <select id="playerA"></select>
+            </div>
+            <div id="teamB-info">
+                <h2 id="teamB-name"></h2>
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/020/620/516/small/volleyball-league-mascot-logo-design-modern-style-emblem-vector.jpg" alt="Team B Logo">
+                <select id="playerB"></select>
+            </div>
+        </div>
+        <div id="scores">
+            <div>
+                <h3>Score</h3>
+                <p>Team A: <span id="scoreA">0</span></p>
+                <p>Team B: <span id="scoreB">0</span></p>
+            </div>
+        </div>
+        <div id="actions">
+            <h3>Actions</h3>
+            <button onclick="addPoint('A', 'SP')">Team A Spike</button>
+            <button onclick="addPoint('B', 'SP')">Team B Spike</button>
+            <button onclick="addPoint('A', 'FL')">Team A Foul</button>
+            <button onclick="addPoint('B', 'FL')">Team B Foul</button>
+            <button onclick="addPoint('A', 'SE')">Team A Service</button>
+            <button onclick="addPoint('B', 'SE')">Team B Service</button>
+            <button onclick="addPoint('A', 'BL')">Team A Block</button>
+            <button onclick="addPoint('B', 'BL')">Team B Block</button>
+        </div>
+        <div>
+            <h3>Score Log</h3>
+            <ul id="logList"></ul>
+        </div>
+    </div>
+    <div id="result" style="display: none;">
+        <h1>Game Over</h1>
+        <p id="winner"></p>
+        <button onclick="resetGame()">Return to Form</button>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
